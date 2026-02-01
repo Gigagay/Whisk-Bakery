@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sweet Whisk - Cake Catalog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-brown: #5D4037;
+            --cream-bg: #FFF8F0;
+            --card-bg: #FFFFFF;
+            --whatsapp-green: #25D366;
+            --text-dark: #3E2723;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background: var(--cream-bg);
+        }
+
+        .logo {
+            max-width: 180px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            color: var(--primary-brown);
+            font-size: 2.5rem;
+            margin-top: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: #6D4C41;
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+
+        .catalog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(93, 64, 55, 0.08);
+            transition: transform 0.2s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .ref-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(255, 255, 255, 0.9);
+            color: var(--primary-brown);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .card-img-container {
+            width: 100%;
+            padding-top: 100%;
+            position: relative;
+            background-color: #eee;
+        }
+
+        .card-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 15px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .cake-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--primary-brown);
+        }
+
+        .wa-btn {
+            background-color: var(--whatsapp-green);
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+            transition: background 0.2s;
+        }
+
+        .wa-btn:hover { background-color: #1ebe57; }
+
+        .sticky-wa {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--whatsapp-green);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 100;
+            transition: transform 0.3s;
+        }
+
+        .sticky-wa:hover { transform: scale(1.1); }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 40px;
+            background: var(--primary-brown);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="logo.jpg" alt="Logo" class="logo">
+        <h1>The Sweet Whisk Bakery</h1>
+        <p class="subtitle">Home-baked goodness. Browse our catalog below and message us on WhatsApp to order.</p>
+        <p> We do custom orders as well</p>
+    </header>
+
+    <div class="catalog-container">
+        <div class="grid">
+            <script>
+                // This small script just helps generate the cards so you don't have to 
+                // manually edit 20 links. It uses the number you provided.
+                const cakeCount = 18; 
+                const grid = document.querySelector('.grid');
+                
+                for (let i = 1; i <= cakeCount; i++) {
+                    const id = i.toString().padStart(3, '0');
+                    const card = `
+                        <div class="card">
+                            <span class="ref-badge">#${id}</span>
+                            <div class="card-img-container">
+                                <img src="cake${i}.jpg" class="card-img" alt="Cake ${id}">
+                            </div>
+                            <div class="card-body">
+                                <div class="cake-title">Creation #${id}</div>
+                                <a href="https://wa.me/27682805689?text=Hi%21%20I%20would%20like%20to%20place%20an%20order%20for%20Cake%20%23${id}" 
+                                   target="_blank" 
+                                   rel="noopener noreferrer" 
+                                   class="wa-btn">
+                                    <i class="fab fa-whatsapp"></i> Inquire Price
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                    grid.innerHTML += card;
+                }
+            </script>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 The Sweet Whisk Bakery. Home-based.</p>
+        <p>Powered by ZAROS Digital</p>
+    </footer>
+
+    <a
+      href="https://wa.me/27682805689?text=Hi%21%20I%20would%20like%20to%20place%20an%20order."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="sticky-wa"
+    >
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
