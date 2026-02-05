@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Gallery | The Sweet Whisk Bakery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream: #FFF8F0;
+    --cocoa: #5D4037;
+    --terracotta: #BC8171;
+    --soft-brown: #6D4C41;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--cream);
+    color: var(--cocoa);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ================= NAV (IDENTICAL ACROSS SITE) ================= */
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5%;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 8%;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cocoa);
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-links a.active {
+    color: var(--terracotta);
+}
+
+.order-btn {
+    background-color: var(--soft-brown);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+/* ================= HEADER ================= */
+header {
+    text-align: center;
+    padding: 60px 5% 40px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.05rem;
+    opacity: 0.8;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ================= GALLERY GRID ================= */
+.catalog-container {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+    padding: 0 5%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.cake-frame {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.cake-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+/* Hover Overlay */
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(93, 64, 55, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-decoration: none;
+}
+
+.cake-frame:hover img {
+    transform: scale(1.1);
+}
+
+.cake-frame:hover .overlay {
+    opacity: 1;
+}
+
+.inquire-pill {
+    background: white;
+    color: var(--cocoa);
+    padding: 10px 22px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+/* ================= CUSTOM CTA ================= */
+.custom-banner {
+    background-color: #FAF3EC;
+    text-align: center;
+    padding: 70px 5%;
+}
+
+.custom-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+}
+
+.custom-banner p {
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.wa-link {
+    background-color: var(--terracotta);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html" class="active">Bakery Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://wa.me/27682805689" class="order-btn">Order Now</a>
+</nav>
+
+<header>
+    <h1>Our Creations</h1>
+    <p>A gallery of our favourite bakes. Tap any image to inquire.</p>
+</header>
+
+<div class="catalog-container">
+    <div class="grid" id="cake-grid"></div>
+</div>
+
+<section class="custom-banner">
+    <h2>Don’t see exactly what you’re looking for?</h2>
+    <p>We love creating custom designs tailored to your event or theme.</p>
+    <a href="https://wa.me/27682805689?text=Hi! I'd like to talk about a custom cake design."
+       class="wa-link">
+       Request a Custom Quote
+    </a>
+</section>
+
+<footer>
+    &copy; 2026 The Sweet Whisk Bakery. All rights reserved.
+</footer>
+
+<script>
+const grid = document.getElementById('cake-grid');
+const whatsappNumber = "27682805689";
+
+for (let i = 1; i <= 18; i++) {
+    const frame = document.createElement('div');
+    frame.className = 'cake-frame';
+    
+    frame.innerHTML = `
+        <img src="cake${i}.jpg" alt="Sweet Whisk Cake ${i}" loading="lazy">
+        <a href="https://wa.me/${whatsappNumber}?text=Hi! I am interested in cake style #${i} from your gallery."
+           class="overlay">
+            <span class="inquire-pill">Inquire about this cake</span>
+        </a>
+    `;
+    grid.appendChild(frame);
+}
+</script>
+
+</body>
+</html>
