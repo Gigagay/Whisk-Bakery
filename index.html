@@ -1,230 +1,312 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Sweet Whisk - Cake Catalog</title>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --primary-brown: #5D4037;
-            --cream-bg: #FFF8F0;
-            --card-bg: #FFFFFF;
-            --whatsapp-green: #25D366;
-            --text-dark: #3E2723;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sweet Whisk Bakery | Home</title>
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
 
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--cream-bg);
-            color: var(--text-dark);
-        }
+<style>
+:root {
+    --cream: #FFF8F0;
+    --cocoa: #5D4037;
+    --terracotta: #BC8171;
+    --soft-brown: #6D4C41;
+}
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background: var(--cream-bg);
-        }
+* { box-sizing: border-box; }
 
-        .logo {
-            max-width: 180px;
-            border-radius: 50%;
-            display: block;
-            margin: 0 auto;
-        }
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--cream);
+    color: var(--cocoa);
+    margin: 0;
+    line-height: 1.7;
+}
 
-        h1 {
-            font-family: 'Pacifico', cursive;
-            color: var(--primary-brown);
-            font-size: 2.5rem;
-            margin-top: 10px;
-        }
+/* ================= NAV (IDENTICAL ACROSS SITE) ================= */
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5%;
+    gap: 20px;
+}
 
-        .subtitle {
-            font-size: 1.1rem;
-            color: #6D4C41;
-            margin-bottom: 20px;
-            max-width: 600px;
-            margin: 0 auto 20px auto;
-        }
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 8%;
+    }
+}
 
-        .catalog-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 25px;
-        }
+.nav-links a {
+    text-decoration: none;
+    color: var(--cocoa);
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
 
-        .card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 4px 10px rgba(93, 64, 55, 0.08);
-            transition: transform 0.2s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
+.nav-links a.active {
+    color: var(--terracotta);
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-        }
+.order-btn {
+    background-color: var(--soft-brown);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+}
 
-        .ref-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background-color: rgba(255, 255, 255, 0.9);
-            color: var(--primary-brown);
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            z-index: 2;
-        }
+/* ================= HERO ================= */
+.hero {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 40px;
+    align-items: center;
+    padding: 60px 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+    text-align: center;
+}
 
-        .card-img-container {
-            width: 100%;
-            padding-top: 100%;
-            position: relative;
-            background-color: #eee;
-        }
+@media (min-width: 992px) {
+    .hero {
+        flex-direction: row;
+        text-align: left;
+        padding: 80px 8%;
+    }
+}
 
-        .card-img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.hero-text {
+    flex: 1;
+}
 
-        .card-body {
-            padding: 15px;
-            text-align: center;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+.hero-text h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    line-height: 1.15;
+    margin-bottom: 20px;
+}
 
-        .cake-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-            color: var(--primary-brown);
-        }
+.hero-text p {
+    font-size: 1.15rem;
+    color: var(--soft-brown);
+    margin-bottom: 30px;
+}
 
-        .wa-btn {
-            background-color: var(--whatsapp-green);
-            color: white;
-            text-decoration: none;
-            padding: 10px;
-            border-radius: 6px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
-            transition: background 0.2s;
-        }
+.shop-btn {
+    background-color: var(--terracotta);
+    color: white;
+    padding: 15px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+}
 
-        .wa-btn:hover { background-color: #1ebe57; }
+.hero-image {
+    flex: 1;
+    text-align: center;
+}
 
-        .sticky-wa {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--whatsapp-green);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            z-index: 100;
-            transition: transform 0.3s;
-        }
+.hero-image img {
+    max-width: 320px;
+}
 
-        .sticky-wa:hover { transform: scale(1.1); }
+/* ================= FEATURED CARDS ================= */
+.featured {
+    padding: 70px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            background: var(--primary-brown);
-            color: #fff;
-        }
-    </style>
+.featured h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .card-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.cake-card {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.cake-card:hover {
+    transform: translateY(-8px);
+}
+
+.cake-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.cake-card .content {
+    padding: 22px;
+}
+
+.cake-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.cake-card p {
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* ================= FULL WIDTH FEATURE ================= */
+.feature-strip {
+    background-color: #FAF3EC;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 70px 5%;
+    margin-top: 60px;
+}
+
+@media (min-width: 992px) {
+    .feature-strip {
+        flex-direction: row;
+        align-items: center;
+        padding: 80px 8%;
+    }
+}
+
+.feature-strip img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 20px;
+}
+
+.feature-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.feature-text p {
+    max-width: 500px;
+    margin-bottom: 25px;
+}
+
+/* ================= FOOTER CTA ================= */
+.banner {
+    text-align: center;
+    padding: 70px 5%;
+}
+
+.banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.1rem;
+    margin-bottom: 20px;
+}
+
+.full-menu-btn {
+    border: 1px solid var(--cocoa);
+    padding: 10px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--cocoa);
+    font-weight: 600;
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <img src="Logo.jpg" alt="Logo" class="logo">
-        <h1>The Sweet Whisk Bakery</h1>
-        <p class="subtitle">Home-baked goodness. Browse our catalog below and message us on WhatsApp to order.</p>
-        <p> We do custom orders as well</p>
-    </header>
+<nav>
+    <div class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="catalog.html">Bakery Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </div>
+    <a href="https://wa.me/27682805689" class="order-btn">Order Now</a>
+</nav>
 
-    <div class="catalog-container">
-        <div class="grid">
-            <script>
-                // This small script just helps generate the cards so you don't have to 
-                // manually edit 20 links. It uses the number you provided.
-                const cakeCount = 18; 
-                const grid = document.querySelector('.grid');
-                
-                for (let i = 1; i <= cakeCount; i++) {
-                    const id = i.toString().padStart(3, '0');
-                    const card = `
-                        <div class="card">
-                            <span class="ref-badge">#${id}</span>
-                            <div class="card-img-container">
-                                <img src="cake${i}.jpg" class="card-img" alt="Cake ${id}">
-                            </div>
-                            <div class="card-body">
-                                <div class="cake-title">Creation #${id}</div>
-                                <a href="https://wa.me/27682805689?text=Hi%21%20I%20would%20like%20to%20place%20an%20order%20for%20Cake%20%23${id}" 
-                                   target="_blank" 
-                                   rel="noopener noreferrer" 
-                                   class="wa-btn">
-                                    <i class="fab fa-whatsapp"></i> Inquire Price
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                    grid.innerHTML += card;
-                }
-            </script>
+<section class="hero">
+    <div class="hero-text">
+        <h1>Handcrafted Cakes<br>Made with Love</h1>
+        <p>Home-baked treats from Cape Town, created for birthdays, weddings, and every sweet moment.</p>
+        <a href="catalog.html" class="shop-btn">Browse Our Creations</a>
+    </div>
+    <div class="hero-image">
+        <img src="Logo.jpg" alt="The Sweet Whisk Bakery Logo">
+    </div>
+</section>
+
+<section class="featured">
+    <h2>Customer Favourites</h2>
+
+    <div class="card-grid">
+        <div class="cake-card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Chocolate Cake">
+            <div class="content">
+                <h3>Signature Chocolate</h3>
+                <p>Rich chocolate sponge layered with silky ganache and finished with elegance.</p>
+            </div>
+        </div>
+
+        <div class="cake-card">
+            <img src="https://images.unsplash.com/photo-1557308536-ee471ef2c390" alt="Cupcakes">
+            <div class="content">
+                <h3>Celebration Cupcakes</h3>
+                <p>Perfect for parties, office treats, or just because — fully customisable.</p>
+            </div>
+        </div>
+
+        <div class="cake-card">
+            <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729" alt="Wedding Cake">
+            <div class="content">
+                <h3>Elegant Wedding Cakes</h3>
+                <p>Designed with care to match your theme and make your day unforgettable.</p>
+            </div>
         </div>
     </div>
+</section>
 
-    <footer>
-        <p>&copy; 2026 The Sweet Whisk Bakery. Home-based.</p>
-        <p>Powered by ZAROS Digital</p>
-    </footer>
+<section class="feature-strip">
+    <img src="https://images.unsplash.com/photo-1604413191066-4dd20bedf486" alt="Custom Cake">
+    <div class="feature-text">
+        <h2>Custom Designs, Just for You</h2>
+        <p>Send us your inspiration, colour palette, or theme — we’ll bring it to life with a Sweet Whisk touch.</p>
+        <a href="contact.html" class="shop-btn">Start a Custom Order</a>
+    </div>
+</section>
 
-    <a
-      href="https://wa.me/27682805689?text=Hi%21%20I%20would%20like%20to%20place%20an%20order."
-      target="_blank"
-      rel="noopener noreferrer"
-      class="sticky-wa"
-    >
-        <i class="fab fa-whatsapp"></i>
-    </a>
+<div class="banner">
+    <h2>Baked Fresh • Made by Hand • Always Personal</h2>
+    <a href="catalog.html" class="full-menu-btn">View Full Gallery</a>
+</div>
 
 </body>
 </html>
