@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | The Sweet Whisk Bakery</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --cream: #FFF8F0;
+    --cocoa: #5D4037;
+    --terracotta: #BC8171;
+    --soft-brown: #6D4C41;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--cream);
+    color: var(--cocoa);
+    margin: 0;
+    line-height: 1.7;
+}
+
+/* ================= NAV (IDENTICAL TO ABOUT) ================= */
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 5%;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    nav {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 8%;
+    }
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--cocoa);
+    font-weight: 600;
+    font-family: 'Playfair Display', serif;
+}
+
+.nav-links a.active {
+    color: var(--terracotta);
+}
+
+.order-btn {
+    background-color: var(--soft-brown);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+}
+
+/* ================= CONTACT LAYOUT ================= */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 60px 5%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+@media (min-width: 992px) {
+    .contact-container {
+        flex-direction: row;
+        gap: 80px;
+        padding: 80px 8%;
+    }
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-info h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    margin-bottom: 20px;
+}
+
+.contact-method {
+    margin-bottom: 25px;
+}
+
+.contact-method h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--terracotta);
+    margin-bottom: 6px;
+}
+
+/* WhatsApp Button */
+.big-wa-btn {
+    display: block;
+    background-color: var(--terracotta);
+    color: white;
+    text-decoration: none;
+    padding: 22px;
+    border-radius: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 30px;
+    transition: transform 0.2s ease;
+}
+
+.big-wa-btn:hover {
+    transform: scale(1.03);
+}
+
+/* ================= FAQ ================= */
+.faq-section {
+    background: white;
+    padding: 70px 5%;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.faq-item h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8px;
+}
+
+/* ================= FOOTER ================= */
+footer {
+    text-align: center;
+    padding: 40px;
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="catalog.html">Bakery Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
+    <a href="https://wa.me/27682805689" class="order-btn">Order Now</a>
+</nav>
+
+<section class="contact-container">
+    <div class="contact-info">
+        <h1>Let's Chat Cake</h1>
+        <p>
+            Ready to start your order?  
+            We handle all requests via WhatsApp so we can get every detail of your custom creation just right.
+        </p>
+
+        <a href="https://wa.me/27682805689?text=Hi! I would like to inquire about a cake."
+           class="big-wa-btn">
+           Start WhatsApp Order
+        </a>
+    </div>
+
+    <div class="contact-info">
+        <div class="contact-method">
+            <h3>Our Hours</h3>
+            <p>
+                Monday – Friday: 09:00 – 17:00<br>
+                Saturday: 09:00 – 13:00<br>
+                Sunday: Closed (Collection Only)
+            </p>
+        </div>
+
+        <div class="contact-method">
+            <h3>Service Area</h3>
+            <p>
+                Based in Cape Town.<br>
+                Delivery available on request.<br>
+                Collection details provided after confirmation.
+            </p>
+        </div>
+
+        <div class="contact-method">
+            <h3>Follow Us</h3>
+            <p>
+                Instagram: @TheSweetWhisk<br>
+                Facebook: /TheSweetWhiskBakery
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="faq-section">
+    <div class="faq-container">
+        <h2 style="font-family:'Playfair Display', serif; text-align:center; font-size:2.3rem;">
+            F.A.Q.
+        </h2>
+
+        <div class="faq-item">
+            <h4>How far in advance should I order?</h4>
+            <p>Custom cakes: 7–10 days notice. Standard treats: 2–3 days.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Do you offer delivery?</h4>
+            <p>Yes — within Cape Town. Fees depend on distance.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can I send inspiration photos?</h4>
+            <p>Absolutely! Send them via WhatsApp and we’ll guide you.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2026 The Sweet Whisk Bakery. Home-baked in Cape Town.</p>
+</footer>
+
+</body>
+</html>
